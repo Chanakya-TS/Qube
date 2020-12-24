@@ -7,9 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public float forwardForce = 2000f;
     public float sidewaysForce = 500f;
     private float screenWidth;
+    //PauseResume pr;
+
+    //bool isPaused = false;
 
     void Start()
     {
+        //pr = this.GetComponent<PauseResume>();
         screenWidth = Screen.width;
     }
 
@@ -46,7 +50,22 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 //#endif
-        
+/*
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+                Time.timeScale = 1;
+                isPaused = false;
+            }
+            else
+            {
+                Time.timeScale = 0;
+                isPaused = true;
+            }
+
+        }
+*/
         if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();

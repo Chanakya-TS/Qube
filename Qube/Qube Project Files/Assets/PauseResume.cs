@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseResume : MonoBehaviour
 {
@@ -18,5 +19,10 @@ public class PauseResume : MonoBehaviour
             isPaused = true;
         }
 
+    }
+
+    public void resetGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }
